@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!-- http://dhtmlexamples.com/2011/04/15/getting-started-with-handlebars-js-templating-language-in-javascript/ -->
+
+<html>
+<head>
+    <title>Getting started with Handlebars.js templating language in JavaScript</title>
+    <style type="text/css">
+        #americanLeagueTeams {
+            border: 1px solid #999;
+            border-collapse: collapse;
+            font-family: sans-serif;
+            font-size: 0.8em;
+            width: 400px;
+        }
+        #americanLeagueTeams thead {
+            background-color: #777;
+            font-size: 1em;
+            font-weight: bold;
+            text-align: left;
+            text-shadow: 1px 1px 1px #DDD;
+            text-transform: uppercase;
+        }
+        #americanLeagueTeams tbody tr:nth-child(even) {
+            background-color: #EEE;
+        }
+        #americanLeagueTeams tbody tr:hover {
+            background-color: #DDD;
+        }
+        caption {
+            font-weight: bold;
+        }
+        td,
+        th {
+            padding: 4px;
+        }
+    </style>
+</head>
+<body>
+ 
+    <div id="handlebarsPlaceholder">This will get replaced by handlebars.js</div>
+ 
+    
+    	<script src="handlebars.js" type="text/javascript" charset="utf-8"></script>
+
+    <script id="americanLeagueTeamsTemplate" type="text/x-handlebars-template">
+        <table id="americanLeagueTeams">
+            <caption>{{leagueName}}</caption>
+            <thead>
+                <tr>
+                    <th>Team</th>
+                    <th>Wins</th>
+                    <th>Losses</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#teams}}
+                <tr>
+                    <td>{{teamName}}</td>
+                    <td>{{w}}</td>
+                    <td>{{l}}</td>
+                </tr>
+                {{/teams}}
+            </tbody>
+        </table>
+    </script>
+ 
+    <script type="text/javascript">
+    //<![CDATA[
+        var src = document.getElementById("americanLeagueTeamsTemplate").innerHTML;
+        var tmpl = Handlebars.compile(src);
+        var json = {"leagueName":"American League", "abbr":"AL", "teams":[
+                {"teamName":"Tampa Bay", "w":96, "l":66},
+                {"teamName":"NY Yankees", "w":95, "l":67},
+                {"teamName":"Boston", "w":89, "l":73},
+                {"teamName":"Toronto", "w":85, "l":77},
+                {"teamName":"Baltimore", "w":66, "l":96},
+                {"teamName":"Minnesota", "w":94, "l":68},
+                {"teamName":"Chicago White Sox", "w":88, "l":74},
+                {"teamName":"Detroit", "w":81, "l":81},
+                {"teamName":"Cleveland", "w":69, "l":93},
+                {"teamName":"Kansas City", "w":67, "l":95},
+                {"teamName":"Texas", "w":90, "l":72},
+                {"teamName":"Oakland", "w":91, "l":81},
+                {"teamName":"LA Angels", "w":80, "l":82},
+                {"teamName":"Seattle", "w":61, "l":101}
+            ]};
+        document.getElementById("handlebarsPlaceholder").innerHTML = tmpl(json);
+    //]]>
+    </script>
+ 
+</body>
+</html>
