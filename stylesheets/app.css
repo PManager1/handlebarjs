@@ -1,0 +1,28 @@
+#americanLeagueTeams {
+    border: 1px solid #999;
+    border-collapse: collapse;
+    font-family: sans-serif;
+    font-size: 0.8em;
+    width: 400px;
+}
+#americanLeagueTeams thead {
+    background-color: #777;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: left;
+    text-shadow: 1px 1px 1px #DDD;
+    text-transform: uppercase;
+}
+#americanLeagueTeams tbody tr:nth-child(even) {
+    background-color: #EEE;
+}
+#americanLeagueTeams tbody tr:hover {
+    background-color: #DDD;
+}
+caption {
+    font-weight: bold;
+}
+td,
+th {
+    padding: 4px;
+}
